@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="PJRの博客">
+  <meta name="description" content="这是一个用来记录PJR一点一滴的地方">
+  
+  <title>PJRの博客</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/header-bg.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header.jpg" ondragstart="return false;"></div>
+    <p>PJR</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/NewLewis" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:rui1218911655@gmail.com"><div class="link-box email"></div></a>
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2018/05/">May 2018<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2018/04/">April 2018<span class="archive-count">5</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/Android/">Android<span class="category-count">5</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Android/服务器/">服务器<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Others/">Others<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/算法/">算法<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title5.jpg)" >
+  <h2>handler的简单理解和使用</h2>
+    
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-04-19T04:55:42.000Z">
+          2018-04-19
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>就绪学习安卓的过程中越发觉得自己是个菜鸡，以前写的代码都是辣鸡，甚至连以前写的辣鸡代码东弄不清楚。话不多说，今天来学习handler。</p>
+<h3 id="为什么要用handler"><a href="#为什么要用handler" class="headerlink" title="为什么要用handler"></a>为什么要用handler</h3><p>在安卓实现的很多时候，我们要新建线程来完成某些费时操作，比如最常见的网络连接就是费时操作。并且很多时候这个线程往往伴随这UI更新操作，比如在网络上加载一张图片然后更新UI的imageView。但是在安卓中子线程中是不允许更新UI操作的，如果你强行更新，程序就会崩溃。这个时候我们就需要handler来更新UI了。</p>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">private</span> Handler handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span>Message msg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+                textView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"Just test handler"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span>：
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startTestThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            Message message <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Message</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            message<span class="token punctuation">.</span>what <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            handler<span class="token punctuation">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="解析异步消息处理机制"><a href="#解析异步消息处理机制" class="headerlink" title="解析异步消息处理机制"></a>解析异步消息处理机制</h3><p>Android中的异步消息处理机制主要由四个部分组成，Message、Handler、MessageQueue和Looper。下面对这四个部分进行简单的介绍。   </p>
+<h4 id="1-Message"><a href="#1-Message" class="headerlink" title="1.Message"></a>1.Message</h4><p>Message是在线程之间传递的消息，让可以在内部携带少量的信息，用于在不同线程之间交换数据。除了上面代码中的what字段外，还可以用arg1和arg2字段来携带一些整型数据，使用obj字段可以携带一个Object对象。</p>
+<h4 id="2-Handler"><a href="#2-Handler" class="headerlink" title="2.Handler"></a>2.Handler</h4><p>Handler顾名思义也就是处理者的意思，他主要是用于发送和处理消息的。发送消息一般是使用Handler的sendMessage()方法，而发出的消息经过一系列地辗转处理后，最终会传递到Handler的handleMessage()方法中进行处理。</p>
+<h4 id="3-MessageQueue"><a href="#3-MessageQueue" class="headerlink" title="3.MessageQueue"></a>3.MessageQueue</h4><p>MessageQueue是消息队列的意思，他主要用于存放所有通过Handler发送的消息。这部分对象会一直存在于消息队列中，等待被处理。每个线程中只会有一个MessageQueue对象。</p>
+<h4 id="4-Looper"><a href="#4-Looper" class="headerlink" title="4.Looper"></a>4.Looper</h4><p>Looper是每个线程中的MessageQueue的管家，调用Looper的loop()方法后，就会进入到一个无限循环当中，然后每当发现MessageQueue中存在一条消息，就会将它取出，并传出到Handler的handerMessage方法中。每个线程中也只会有一个Looper对象。</p>
+<h4 id="5-异步消息处理流程"><a href="#5-异步消息处理流程" class="headerlink" title="5.异步消息处理流程"></a>5.异步消息处理流程</h4><p>首先需要在主线程中创建一个Handler对象，并重写handlerMessage()方法。然后当子线程中需要更新UI时，就创建一个Message对象，并通过handler将这条消息发送出去。之后这条消息会被添加到MessageQueue队列中，等待被处理，而Looper则会一直尝试从MessageQueue中取出带处理的消息，最后分发回Handler的handleMessage()方法中。忧郁Handler是在主线程创建的，所以此时handleMessage()方法中的代码也会在主线程中运行，于是就完成了更新UI的操作了。</p>
+<h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><p><img src="https://raw.githubusercontent.com/NewLewis/MarkdownPhotos/4fe048d533f5992de91f0da72109d356dc89a02a/handler.jpg" alt=""></p>
+
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="newLewis.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
+
+  <script>
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2018/04/26/算法题-数字划分/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2018/04/12/volatile关键字/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要用handler"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要用handler</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析异步消息处理机制"><span class="post-toc-number">3.</span> <span class="post-toc-text">解析异步消息处理机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Message"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1.Message</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Handler"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.Handler</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-MessageQueue"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.MessageQueue</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-Looper"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4.Looper</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-异步消息处理流程"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">5.异步消息处理流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图解"><span class="post-toc-number">4.</span> <span class="post-toc-text">图解</span></a></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  PJRの博客</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

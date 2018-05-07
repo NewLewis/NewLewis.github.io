@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="PJRの博客">
+  <meta name="description" content="这是一个用来记录PJR一点一滴的地方">
+  
+  <title>PJRの博客</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/header-bg.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header.jpg" ondragstart="return false;"></div>
+    <p>PJR</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/NewLewis" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:rui1218911655@gmail.com"><div class="link-box email"></div></a>
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2018/05/">May 2018<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2018/04/">April 2018<span class="archive-count">5</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/Android/">Android<span class="category-count">5</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Android/服务器/">服务器<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Others/">Others<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/算法/">算法<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title1.jpg)" >
+  <h2>Android实现图片剪裁成正方形</h2>
+    
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-04-07T04:44:09.000Z">
+          2018-04-07
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>虽然上学期学过安卓，但是真正实际运用中还是会遇到很多问题。比如最近帮师兄做毕设的时候就问题连连，故将一些问题记录于此，以便后来复习参考。<br>在实现朋友圈的时候，朋友圈的图片显示都是正方形的，所以需要进行裁剪，一下便是裁剪的详细过程。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> android<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>Bitmap<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ImageUtils</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> Bitmap bitmap<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> edgeLength<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">ImageUtils</span><span class="token punctuation">(</span>Bitmap bitmap<span class="token punctuation">,</span><span class="token keyword">int</span> edgeLength<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>bitmap <span class="token operator">=</span> bitmap<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>edgeLength <span class="token operator">=</span> edgeLength<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> Bitmap <span class="token function">centerSquareScaleBitmap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>null <span class="token operator">==</span> bitmap <span class="token operator">||</span> edgeLength <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span>  null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        Bitmap result <span class="token operator">=</span> bitmap<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> widthOrg <span class="token operator">=</span> bitmap<span class="token punctuation">.</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> heightOrg <span class="token operator">=</span> bitmap<span class="token punctuation">.</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>widthOrg <span class="token operator">></span> edgeLength <span class="token operator">&amp;&amp;</span> heightOrg <span class="token operator">></span> edgeLength<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//压缩到一个最小长度是edgeLength的bitmap</span>
+            <span class="token keyword">int</span> longerEdge <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>edgeLength <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>widthOrg<span class="token punctuation">,</span> heightOrg<span class="token punctuation">)</span> <span class="token operator">/</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>widthOrg<span class="token punctuation">,</span> heightOrg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> scaledWidth <span class="token operator">=</span> widthOrg <span class="token operator">></span> heightOrg <span class="token operator">?</span> longerEdge <span class="token operator">:</span> edgeLength<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> scaledHeight <span class="token operator">=</span> widthOrg <span class="token operator">></span> heightOrg <span class="token operator">?</span> edgeLength <span class="token operator">:</span> longerEdge<span class="token punctuation">;</span>
+            Bitmap scaledBitmap<span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span><span class="token punctuation">{</span>
+                scaledBitmap <span class="token operator">=</span> Bitmap<span class="token punctuation">.</span><span class="token function">createScaledBitmap</span><span class="token punctuation">(</span>bitmap<span class="token punctuation">,</span> scaledWidth<span class="token punctuation">,</span> scaledHeight<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment" spellcheck="true">//从图中截取正中间的正方形部分。</span>
+            <span class="token keyword">int</span> xTopLeft <span class="token operator">=</span> <span class="token punctuation">(</span>scaledWidth <span class="token operator">-</span> edgeLength<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> yTopLeft <span class="token operator">=</span> <span class="token punctuation">(</span>scaledHeight <span class="token operator">-</span> edgeLength<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span><span class="token punctuation">{</span>
+                result <span class="token operator">=</span> Bitmap<span class="token punctuation">.</span><span class="token function">createBitmap</span><span class="token punctuation">(</span>scaledBitmap<span class="token punctuation">,</span> xTopLeft<span class="token punctuation">,</span> yTopLeft<span class="token punctuation">,</span> edgeLength<span class="token punctuation">,</span> edgeLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                scaledBitmap<span class="token punctuation">.</span><span class="token function">recycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>将imageview转化为bitmap的方法：</p>
+<pre class=" language-java"><code class="language-java">Bitmap bitmap <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>BitmapDrawable<span class="token punctuation">)</span>imageView<span class="token punctuation">.</span><span class="token function">getDrawable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBitmap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="newLewis.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
+
+  <script>
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2018/04/08/Android-NineGridImageView以及Picasso的基本用法/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/04/21/hello-world/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  PJRの博客</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
