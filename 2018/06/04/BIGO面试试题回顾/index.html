@@ -117,55 +117,95 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy" style="background-color:#26A69A"   data-original="/images/cover/title4.jpg"  >
-        <a class="recent-post-link" href="/2018/05/03/Android端与服务器端的交互（通过http协议）/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2018/05/03/Android端与服务器端的交互（通过http协议）/" >Android端与服务器端的交互（通过http协议）</a></p>
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title7.jpg)" >
+  <h2>BIGO面试试题回顾</h2>
+    
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-06-04T11:11:40.000Z">
+          2018-06-04
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>今天面试了BIGO，人生第一次关于职业的面试，面试官的问题感觉没有想像的那么难，但是比想像的需求更高。这次是一下午直接面了三轮，三轮都是技术面，面完试之后头都大了，可能这种高强度的压力正是一个职场er需要的吧。下面来总结一下这次在面试中遇到的问题，供大家参考，也为自己不再踩坑而努力一下。</p>
+<ol>
+<li>C++中拷贝构造函数的参数是不是一定要引用</li>
+<li>“=”重载的参数是不是一定要引用</li>
+<li>简述一下的static关键字的用法</li>
+<li>虚函数以及多态的使用</li>
+<li><p>算法题：计算当n=981时,下列代码的输出值。</p>
+<pre class=" language-C++"><code class="language-C++">void func(int n){
+ int countx = 0;
 
-          <!--date-->
-          
-            <p class="post-time">PJR &nbsp &nbsp 发布于:<time datetime="2018-05-03T04:30:09.000Z">
-              2018-05-03
-            </time>
-            </p>
-          
+ while(n){
+     n &= (n-1);
+     countx++;
+ }
+ cout << countx << endl;
+}
+</code></pre>
+</li>
+<li>定义递增序列的中位数为A[L/2]，L为序列长度。给定两个等长的递增序列，求两个序列合并成的序列的中位数。简述思想，写出代码，计算时间和空间复杂度。</li>
+<li>给定两个矩阵A和B,求两个矩阵的积。要求:尽量优化细节。</li>
+<li>快速排序的时间复杂度，堆排序的时间复杂度，创建堆的时间复杂度。</li>
+<li>思考题：给定一个圆环，在圆环上存在一个站点，在圆环上有一个小车在绕圆环运动，每次经过站点，都有50%的几率改变速度。小车有两种速度,2min/圈和1min/圈,所以每次经过圆环速度都有50%的几率从1变成2或者从2变成1，或者不变。小车在站点改变速度之后做匀速运动。现在假设你在任意一个时间点出现在站点上，那么还要多久时间能等到小车经过。</li>
+<li>有16只球队，最少经过多少次比赛可以找到球队中最厉害的球队和第二厉害的球队。</li>
+<li>有一个数组A=[a1,a2,a3,a4….,an]，写一个函数找到所有选择的结果。比如：只选择一个的时候RES = [a1,a2,a3,a4….,an],选择两个的时候RES=[a1a2,a1a3,a1a4…..,a1a9n…..an-1an]等。</li>
+</ol>
 
-          <!--tags-->
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="newLewis.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器-mysql-交互/">服务器 mysql 交互</a></li></ul>
-            
-          <!--分类-->
+  <script>
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/服务器/">服务器</a></li></ul></li></ul>
-            
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                今天终于完成了数据库完全在服务器端的调用，完全与安卓端分离，安卓端只需要给服务器端发送请求，服务器端执行关于数据库的操作，最后将结果返回给安卓端，这样就大大节省了安卓端的效率。实验是参考
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2018/05/03/Android端与服务器端的交互（通过http协议）/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2018/05/03/Android端与服务器端的交互（通过http协议）/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    
 </div>
-
-
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">
