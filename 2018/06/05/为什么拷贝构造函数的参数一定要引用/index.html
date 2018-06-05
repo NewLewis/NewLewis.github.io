@@ -131,52 +131,48 @@
   <div class="post-page-content">
   <p>关于昨天的面试问题中的关于拷贝构造函数的参数是否一定要用引用，我其实回答的不是很好，面试前没有复习到，记忆比较模糊。今天包括“=”好好复习了一下，记录于此。</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>首先看测试用例：</p>
-<pre class=" language-c++"><code class="language-c++">#include <iostream>
+<pre class=" language-c"><code class="language-c">class Test<span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">s</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token function">Test</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">s</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token function">Test</span><span class="token punctuation">(</span><span class="token keyword">const</span> Test <span class="token operator">&amp;</span>other<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        this<span class="token operator">-></span>s <span class="token operator">=</span> other<span class="token punctuation">.</span>s<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"拷贝构造函数"</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"+s:"</span><span class="token operator">&lt;&lt;</span> other<span class="token punctuation">.</span>s <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span>Test other<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        this<span class="token operator">-></span>s <span class="token operator">=</span> other<span class="token punctuation">.</span>s<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"测试函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-using namespace std;
+<span class="token comment" spellcheck="true">//    Test&amp; operator=(Test other){</span>
+<span class="token comment" spellcheck="true">//        this->s = other.s;</span>
+<span class="token comment" spellcheck="true">//        cout &lt;&lt; "等号的重载" &lt;&lt; endl; </span>
+<span class="token comment" spellcheck="true">//    }</span>
 
-class Test{
-public:
-    Test():s("A"){}
-    Test(string s):s(s){}
-    Test(const Test &other){
-        this->s = other.s;
-        cout << "拷贝构造函数" << "+s:"<< other.s << endl;
-    }
-    void test(Test other){
-        this->s = other.s;
-        cout << "测试函数" << endl;
-    }
-    void print(){
-        cout << s << endl;
-    }
+    Test<span class="token operator">&amp;</span> operator<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Test<span class="token operator">&amp;</span> other<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        this<span class="token operator">-></span>s <span class="token operator">=</span> other<span class="token punctuation">.</span>s<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"等号的重载"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+private<span class="token punctuation">:</span>
+    string s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-//    Test& operator=(Test other){
-//        this->s = other.s;
-//        cout << "等号的重载" << endl; 
-//    }
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Test A<span class="token punctuation">;</span>
+    Test <span class="token function">B</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    B<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    Test& operator=(const Test& other){
-        this->s = other.s;
-        cout << "等号的重载" << endl;
-    }
-private:
-    string s;
-};
+    A<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-int main(){
-    Test A;
-    Test B("B");
-    A.print();
-    B.print();
-
-    A.test(B);
-    A.print();
-
-    Test C("C");
-    A = C;
-    A.print();
-} 
+    Test <span class="token function">C</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A <span class="token operator">=</span> C<span class="token punctuation">;</span>
+    A<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
 </code></pre>
 <p>运行结果：<img src="https://raw.githubusercontent.com/NewLewis/MarkdownPhotos/master/test2.png" alt="运行截图"></p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>先分析一下这段代码，在Test类中有无参的构造函数，有参的构造函数，拷贝构造函数以及“=”的重载。</p>

@@ -136,15 +136,15 @@
 <li>简述一下的static关键字的用法</li>
 <li>虚函数以及多态的使用</li>
 <li><p>算法题：计算当n=981时,下列代码的输出值。</p>
-<pre class=" language-C++"><code class="language-C++">void func(int n){
- int countx = 0;
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ <span class="token keyword">int</span> countx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
- while(n){
-     n &= (n-1);
-     countx++;
- }
- cout << countx << endl;
-}
+ <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     n <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     countx<span class="token operator">++</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ cout <span class="token operator">&lt;&lt;</span> countx <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li>定义递增序列的中位数为A[L/2]，L为序列长度。给定两个等长的递增序列，求两个序列合并成的序列的中位数。简述思想，写出代码，计算时间和空间复杂度。</li>
