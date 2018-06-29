@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="PJRの博客">
+  <meta name="description" content="这是一个用来记录PJR一点一滴的地方">
+  
+  <title>PJRの博客</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/header-bg.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header.jpg" ondragstart="return false;"></div>
+    <p>PJR</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/NewLewis" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:rui1218911655@gmail.com"><div class="link-box email"></div></a>
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2018/06/">June 2018<span class="archive-count">8</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2018/05/">May 2018<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2018/04/">April 2018<span class="archive-count">5</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/Android/">Android<span class="category-count">5</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Android/服务器/">服务器<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/Others/">Others<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/算法/">算法<span class="category-count">2</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/面试/">面试<span class="category-count">7</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title14.jpg)" >
+  <h2>LeetCode77 组合</h2>
+    
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-06-29T17:03:59.000Z">
+          2018-06-30
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>刷题中遇到了这个题。呵！这不就是我第一次面试Bigo时候最后那道题吗？导致我被刷掉的那道题。找到优秀的解法之后，自己写的代码成功AC了，不记录一下怎么行。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个整数 n 和 k，返回 1 … n 中所有可能的 k 个数的组合。<br>例子：</p>
+<pre><code>输入: n = 4, k = 2
+输出:
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+</code></pre><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>一看到这个题最初想到的方法当然是穷举，暴力一定能够解决问题，就k重for循环或者深度为k的一个dfs嘛，这两种方法的时间复杂度都比较高。仔细思考之后发现其实是有动态规划方法来解的。1~n的k个数的所有组合一定有两部分组成：</p>
+<ol>
+<li>第一部分，求(1~n-1)中k-1个数的所有组合，然后每个组合中加入元素n</li>
+<li>第二部分，求(1~n-1)中k个数的所有组合   </li>
+</ol>
+<p>上述两部分合并便可以得到1~n中k个数的所有组合。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token function">combine</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&lt;</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            k <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">==</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> res<span class="token punctuation">;</span>
+            vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vec<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+                vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> res<span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> res<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vec<span class="token punctuation">;</span>
+                vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> res<span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token function">combine</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token function">combine</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span>k<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token function">merge</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> vec1<span class="token punctuation">,</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> vec2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>vec2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            vec1<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vec2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> vec1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token function">insert</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> vec<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>vec<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            vec<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> vec<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span> 
+</code></pre>
+<p>我猜当时要是能够写出这个代码的话，现在已经进了bigo了。<br>继续加油！</p>
+
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="newLewis.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
+
+  <script>
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2018/06/19/中位数-第k小的数/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  PJRの博客</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
