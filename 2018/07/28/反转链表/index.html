@@ -119,32 +119,59 @@
   <div id="content-inner">
     
 <article id="post">
-  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title9.jpg)" >
-  <h2>突如其来的腾讯电话面试回顾</h2>
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title16.jpg)" >
+  <h2>反转链表</h2>
     
-  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-06-13T09:31:25.000Z">
-          2018-06-13
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-07-28T05:47:57.000Z">
+          2018-07-28
     </time>
   </p>
     
   </div>
   <div class="post-page-content">
-  <p>刚刚正在逛淘宝，然后突然来了一个腾讯的面试电话，复习过的东西全都忘了，所有东西都记得模模糊糊，怎一个惨字了得。现在凭借回忆写一下被问到的题目。   </p>
-<ol>
-<li>关于原子性和线程安全。问：下列哪一个操作是线程安全的：a.A++ b.A = 1 c.A = B</li>
-<li>top k问题，一百万个游戏数据，找到最大的100个。</li>
-<li>http协议 post和get有什么区别。http请求的参数是放在哪里的。</li>
-<li>简述tcp的四次握手。time_wait这个阶段在干什么。主动连接方什么情况下不能直接close。</li>
-<li>算法题：一个10*10棋盘，棋子要从左下角走到右下角，每次只能往上或者往右走，问一共需要多少步。</li>
-<li>简述虚函数的原理和机制。</li>
-<li>找到一个链表的倒数第k个节点。</li>
-<li>哈希表的实现和map的实现有什么不同。</li>
-<li>简述vector和list的区别。</li>
-<li>有没有对于socket编程的相关知识。</li>
-<li>怎么在linux环境下查看进程的cpu占用情况。</li>
-<li>描述一下自己的性格优点和缺点。</li>
+  <h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>使用递归和非递归两种方式反转链表</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><h4 id="非递归解法"><a href="#非递归解法" class="headerlink" title="非递归解法"></a>非递归解法</h4><ol>
+<li>记录下一个节点</li>
+<li>将当前节点指向前一个节点</li>
+<li><p>前一个节点和当前节点都向前移动一位   </p>
+<pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span> 
+ ListNode<span class="token operator">*</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head <span class="token operator">||</span> <span class="token operator">!</span>head<span class="token operator">-></span>next<span class="token punctuation">)</span>
+         <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+
+     ListNode<span class="token operator">*</span> pre <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+     ListNode<span class="token operator">*</span> next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+     <span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         next <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+         head<span class="token operator">-></span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+         pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+         head <span class="token operator">=</span> next<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="递归解法"><a href="#递归解法" class="headerlink" title="递归解法"></a>递归解法</h4></li>
+<li>记录下一个节点</li>
+<li>将下一个节点以后的全部反转</li>
+<li><p>将反转的结果指向当前头结点，头结点指向null</p>
+<pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span> 
+  ListNode<span class="token operator">*</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head <span class="token operator">||</span> <span class="token operator">!</span>head<span class="token operator">-></span>next<span class="token punctuation">)</span>
+         <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+
+      ListNode<span class="token operator">*</span> nextNode<span class="token operator">=</span>head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+      ListNode<span class="token operator">*</span> res<span class="token operator">=</span><span class="token function">reverseList</span><span class="token punctuation">(</span>head<span class="token operator">-></span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      nextNode<span class="token operator">-></span>next<span class="token operator">=</span>head<span class="token punctuation">;</span>
+      head<span class="token operator">-></span>next<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
 </ol>
-<p>总得来说题目还是比较常规吧，只是自己忘得太快了，好多东西刚看了没几天就忘了。··</p>
 
   </div>
   <!--评论块-->
@@ -179,15 +206,11 @@
 <nav class="post-nav">
   <!-- Prev Nav -->
     
-  <a href="/2018/06/13/Top-K问题/" id="post_nav-newer" class="post-nav-content prev-content">
-      新篇
-  </a>
-    
 
 
   <!-- Next Nav -->
     
-  <a href="/2018/06/05/为什么拷贝构造函数的参数一定要引用/" id="post_nav-older" class="post-nav-content next-content">
+  <a href="/2018/07/14/计算机网络-网尽其用（一）/" id="post_nav-older" class="post-nav-content next-content">
       旧篇
   </a>
     
@@ -195,7 +218,7 @@
 <div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
 <div class="post-toc-none"><p>(无)</p></div>
 <div class="post-toc-box">
-    
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">描述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法"><span class="post-toc-number">2.</span> <span class="post-toc-text">解法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非递归解法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">非递归解法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#递归解法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">递归解法</span></a></li></ol></li></ol>
 </div>
 <!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
 <script type="text/javascript">
