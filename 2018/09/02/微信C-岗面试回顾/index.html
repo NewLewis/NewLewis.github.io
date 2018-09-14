@@ -117,59 +117,87 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="tag">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy" style="background-color:#26A69A"   data-original="/images/cover/title6.jpg"  >
-        <a class="recent-post-link" href="/2018/04/26/算法题-数字划分/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2018/04/26/算法题-数字划分/" >数的划分</a></p>
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/cover/title18.jpg)" >
+  <h2>微信C++岗面试回顾</h2>
+    
+  <p>作者:PJR &nbsp&nbsp 发布于:<time datetime="2018-09-02T07:33:49.000Z">
+          2018-09-02
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>前天面试了腾讯的微信团队，再一次了解到自己的不足，最后面试官给我的评价是基础知识不牢靠，让我继续加油。在此回顾一下微信的面试题目，记录如下。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ol>
+<li>sizeof(int),sizeof(int<em>),sizeof(double),sizeof(double</em>),sizeof(long),sizeof(long long)的大小。const char *ch[] = {“abc”,”ab”,”abcd”,”asdfe”,”defd”},sizeof(ch)的大小。</li>
+<li>一道程序找错题，错误的地方有A.c型字符串不能用==号比较。B.储存在栈空间的字符串，函数结束时会销毁，返回首地址并没有什么用。C.map在key不存在时，会自动增加的，所以如果map是const的，那么程序就会报错。D.string对象没法用memset()来置零。</li>
+<li>stl中vector的resize()和reserve()有什么区别。</li>
+<li>二叉搜索树的找到第3大的节点</li>
+<li>sql的一道题，求关系数</li>
+<li>线程和进程有什么区别，宏观的谈一谈</li>
+<li>一道概率论的题，不会做。</li>
+<li>三次握手和四次挥手的图解，time_wait()</li>
+<li>socket编程,客户端和服务器都写。   </li>
+</ol>
+<p>我觉得真不愧是微信，中国互联网顶尖offer了，难哭了我了。也怪自己复习地太差。</p>
 
-          <!--date-->
-          
-            <p class="post-time">PJR &nbsp &nbsp 发布于:<time datetime="2018-04-25T16:14:32.000Z">
-              2018-04-26
-            </time>
-            </p>
-          
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="newLewis.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          <!--tags-->
+  <script>
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归/">递归</a></li></ul>
-            
-          <!--分类-->
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
-            
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2018/09/02/关于sizeof的一些事/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
 
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                描述将n个完全相同的小球放入k个完全相同的盒子，每个盒子不能为空，问有多少种不同的放法。
-例如，n=7，k=3，有四种放法：1,1,5; 1,2,4; 1,3,3; 2,2,3
 
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2018/04/26/算法题-数字划分/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+  <!-- Next Nav -->
+    
+  <a href="/2018/08/26/LeetCode287-寻找重复数/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li></ol>
 </div>
-
-
-</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">

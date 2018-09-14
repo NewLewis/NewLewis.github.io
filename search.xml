@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title>关于sizeof的一些事</title>
+      <link href="/2018/09/02/%E5%85%B3%E4%BA%8Esizeof%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/"/>
+      <url>/2018/09/02/%E5%85%B3%E4%BA%8Esizeof%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>微信C++岗面试回顾</title>
+      <link href="/2018/09/02/%E5%BE%AE%E4%BF%A1C-%E5%B2%97%E9%9D%A2%E8%AF%95%E5%9B%9E%E9%A1%BE/"/>
+      <url>/2018/09/02/%E5%BE%AE%E4%BF%A1C-%E5%B2%97%E9%9D%A2%E8%AF%95%E5%9B%9E%E9%A1%BE/</url>
+      <content type="html"><![CDATA[<p>前天面试了腾讯的微信团队，再一次了解到自己的不足，最后面试官给我的评价是基础知识不牢靠，让我继续加油。在此回顾一下微信的面试题目，记录如下。</p><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ol><li>sizeof(int),sizeof(int<em>),sizeof(double),sizeof(double</em>),sizeof(long),sizeof(long long)的大小。const char *ch[] = {“abc”,”ab”,”abcd”,”asdfe”,”defd”},sizeof(ch)的大小。</li><li>一道程序找错题，错误的地方有A.c型字符串不能用==号比较。B.储存在栈空间的字符串，函数结束时会销毁，返回首地址并没有什么用。C.map在key不存在时，会自动增加的，所以如果map是const的，那么程序就会报错。D.string对象没法用memset()来置零。</li><li>stl中vector的resize()和reserve()有什么区别。</li><li>二叉搜索树的找到第3大的节点</li><li>sql的一道题，求关系数</li><li>线程和进程有什么区别，宏观的谈一谈</li><li>一道概率论的题，不会做。</li><li>三次握手和四次挥手的图解，time_wait()</li><li>socket编程,客户端和服务器都写。   </li></ol><p>我觉得真不愧是微信，中国互联网顶尖offer了，难哭了我了。也怪自己复习地太差。</p>]]></content>
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode287 寻找重复数</title>
       <link href="/2018/08/26/LeetCode287-%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0/"/>
       <url>/2018/08/26/LeetCode287-%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0/</url>
